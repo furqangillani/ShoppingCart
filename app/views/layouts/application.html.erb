@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShoppingCart</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if user_signed_in? %>
+
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+  <% elsif admin_signed_in? %>
+    <%= link_to "New product", new_product_path %>
+  <% else %>
+  <%= link_to "User", new_user_session_path %> <br>
+  <%= link_to "Admin", new_admin_session_path %>
+  <% end %>
+    <%= yield %>
+  </body>
+</html>
