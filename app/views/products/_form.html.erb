@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div><br>
+
+  <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
@@ -24,6 +29,11 @@
   <div>
     <%= form.label :price, style: "display: block" %>
     <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card, style: "display: block" %>
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {include_blank: "Select Category"}, class: 'custom-select fullwidth' %><br>
   </div>
 
   <div>

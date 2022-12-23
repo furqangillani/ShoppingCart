@@ -14,4 +14,10 @@
     <%= product.price %>
   </p>
 
+  <% if product.image.attached? %>
+    <div>
+      <%= image_tag (product&.image.attached? ? product.image : ""), style: 'height: 40px; weight: 40px;' %>
+    </div>
+  <% end %>
+
 </div>
